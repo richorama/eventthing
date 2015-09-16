@@ -18,4 +18,7 @@ et.on('foo', function(arg){
 et.emit('foo', 'hello world');
 ```
 
+## License
+
+MIT
 
