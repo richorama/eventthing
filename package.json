@@ -1,0 +1,23 @@
+{
+  "name": "eventthing",
+  "version": "1.0.0",
+  "description": "Super simple events",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/richorama/eventthing.git"
+  },
+  "keywords": [
+    "events",
+    "eventmachine"
+  ],
+  "author": "richard.astbury",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richorama/eventthing/issues"
+  },
+  "homepage": "https://github.com/richorama/eventthing"
+}
