@@ -1,6 +1,6 @@
 {
   "name": "eventthing",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Super simple events",
   "main": "index.js",
   "scripts": {
