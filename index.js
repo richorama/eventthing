@@ -1,22 +1,32 @@
 var events = {};
 
-module.exports.on = function(event, func){
+var on = function(event, func){
 	if (!events[event]) events[event] = [];
 	events[event].push(func);
-}
+};
 
-module.exports.emit = function(event, arg){
+var emit = function(event, arg){
 	if (!events[event]) return;
-	events[event].forEach(function(x){
-		x(arg);
+	events[event].forEach(function(func){
+		func(arg);
 	});
-}
+};
 
-module.exports.clearAll = function(){
+var clearAll = function(){
 	events = {};
-}
+};
 
-module.exports.clear = function(event){
+var clear = function(event){
 	if (!events[event]) return;
 	events[event] = [];
+};
+
+module.exports = {
+  clear: clear,
+  clearAll: clearAll,
+  on: on,
+  sub: on,
+  emit: emit,
+  fire: emit,
+  pub: emit
 };
