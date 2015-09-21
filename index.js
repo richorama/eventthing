@@ -17,6 +17,13 @@ var on = function(event, func){
 		return;
 	}
 
+	if (typeof event === 'object'){
+		for (ev in event){
+			on(ev,event[ev]);
+		}
+		return;
+	}
+
 	if (!events[event]) events[event] = [];
 	events[event].push(func);
 };

@@ -32,6 +32,12 @@ et.on('foo', [console.log, console.log]);
 // publish multiple events
 et.emit(['foo','bar']);
 
+// use an object to subscribe to multiple events
+et.on({
+	foo:function(){...},
+	bar:function(){...}
+});
+
 ```
 
 

@@ -102,4 +102,22 @@ describe('event thing', function(){
 		et.emit(['multi-4', 'multi-5']);
 	});
 
+	it ('supports an object with multiple subscriptions', function(done){
+		var count = 0;
+		et.on({
+			multi6:function(){
+				count++;
+				if (count === 2) done();
+			},
+			multi7:function(){
+				count++;
+				if (count === 2) done();
+			}
+		});
+
+		et.emit('multi6');
+		et.emit('multi7');
+
+	});
+
 });
