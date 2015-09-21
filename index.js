@@ -14,6 +14,7 @@ var on = function(event, func){
 		func.forEach(function(fn){
 			on(event, fn);			
 		});
+		return;
 	}
 
 	if (!events[event]) events[event] = [];
