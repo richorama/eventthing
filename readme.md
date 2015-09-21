@@ -38,6 +38,8 @@ et.on({
 	bar:function(){...}
 });
 
+// subscribe to all events
+et.on('*', function(){...});
 ```
 
 

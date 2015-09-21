@@ -37,8 +37,12 @@ var emit = function(event, arg){
 		return;
 	}
 
-	if (!events[event]) return;
-	events[event].forEach(function(func){
+	(events[event] || []).forEach(function(func){
+		func(arg);
+	});
+
+
+	(events['*'] || []).forEach(function(func){
 		func(arg);
 	});
 };

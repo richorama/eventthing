@@ -133,4 +133,19 @@ describe('event thing', function(){
 		et.emit(['multia', 'multib']);
 	});
 
+	it('supports subscribing to all events', function(done){
+
+		var count = 0;
+
+		var cb = function(){
+			count++;
+			if (count === 2) done();
+		}	
+
+		et.on('xyz', cb);
+		et.on('*', cb);
+
+		et.emit('xyz');
+	});
+
 });
