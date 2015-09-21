@@ -2,10 +2,18 @@ var events = {};
 
 var on = function(event, func){
 	if (Array.isArray(event)){
+		// multiple events
 		event.forEach(function(ev){
 			on(ev, func);
 		});	
 		return;
+	}
+
+	if (Array.isArray(func)){
+		// multiple functions
+		func.forEach(function(fn){
+			on(event, fn);			
+		});
 	}
 
 	if (!events[event]) events[event] = [];

@@ -77,4 +77,15 @@ describe('event thing', function(){
 
 	});
 
+	it ('supports multiple functions to subscribe', function(done){
+		var count = 0;
+		var cb = function(){
+			count++;
+			if (count === 2) done();
+		}	
+		et.on('multi-3', [cb,cb]);
+		et.emit('multi-3');
+
+	});
+
 });
