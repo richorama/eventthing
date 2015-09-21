@@ -120,4 +120,17 @@ describe('event thing', function(){
 
 	});
 
+	it('supports multi subscribers with multiple events', function(done){
+
+		var count = 0;
+
+		var cb = function(){
+			count++;
+			if (count === 4) done();
+		}	
+
+		et.on(['multia','multib'], [cb,cb])
+		et.emit(['multia', 'multib']);
+	});
+
 });
