@@ -137,7 +137,8 @@ describe('event thing', function(){
 
 		var count = 0;
 
-		var cb = function(){
+		var cb = function(arg, event){
+			if (event !== 'xyz') return done('wrong event name');
 			count++;
 			if (count === 2) done();
 		}	
