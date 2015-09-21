@@ -88,4 +88,18 @@ describe('event thing', function(){
 
 	});
 
+	it ('supports multiple events to be emitted', function(done){
+		var count = 0;
+		et.on('multi-4', function(){
+			count++;
+			if (count === 2) done();
+		});	
+
+		et.on('multi-5', function(){
+			count++;
+			if (count === 2) done();
+		});	
+		et.emit(['multi-4', 'multi-5']);
+	});
+
 });

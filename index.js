@@ -22,6 +22,14 @@ var on = function(event, func){
 };
 
 var emit = function(event, arg){
+
+	if (Array.isArray(event)){
+		event.forEach(function(ev){
+			emit(ev,arg);
+		});
+		return;
+	}
+
 	if (!events[event]) return;
 	events[event].forEach(function(func){
 		func(arg);
