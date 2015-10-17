@@ -56,7 +56,7 @@ var clear = function(event){
 	events[event] = [];
 };
 
-module.exports = {
+var methods = {
   clear: clear,
   clearAll: clearAll,
   on: on,
@@ -65,3 +65,11 @@ module.exports = {
   fire: emit,
   pub: emit
 };
+
+if(module && module.exports){
+  module.exports = methods;
+}else{
+  if(window){
+    window.Eventthing = methods;
+  }
+}
