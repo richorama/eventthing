@@ -138,7 +138,7 @@ describe('event thing', function(){
 		var count = 0;
 
 		var cb = function(arg, event){
-			if (event !== 'xyz') return done('wrong event name');
+			if (event !== 'xyz') return done('wrong event name (' + event + ')');
 			count++;
 			if (count === 2) done();
 		}	
@@ -147,6 +147,26 @@ describe('event thing', function(){
 		et.on('*', cb);
 
 		et.emit('xyz');
+		et.clearAll();
+	});
+
+
+
+	it('supports unsubscribing an event using a function', function(done){
+		
+		var cb1 = function(){
+			done("should not fire");
+		};
+		var cb2 = function(){
+			done();
+		};
+		et.on('AAA', cb1);
+		et.on('AAA', cb2);
+
+		et.clear(cb1);
+
+		et.emit('AAA');
+
 	});
 
 });

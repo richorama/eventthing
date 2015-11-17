@@ -52,7 +52,15 @@ var clearAll = function(){
 };
 
 var clear = function(event){
-	if (!events[event]) return;
+	if (!events[event]) {
+		Object.keys(events).forEach(function(key){
+			if (events[key].indexOf(event) !== -1){
+				events[key] = events[key].filter(function(x){
+					return x !== event;
+				});
+			}
+		});
+	}
 	events[event] = [];
 };
 
